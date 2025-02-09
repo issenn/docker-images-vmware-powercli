@@ -21,7 +21,7 @@ on:
 jobs:
   flowzone:
     name: Flowzone
-    uses: product-os/flowzone/.github/workflows/flowzone.yml@v5.7.8
+    uses: product-os/flowzone/.github/workflows/flowzone.yml@v19.9.3
     # uses: product-os/flowzone/.github/workflows/flowzone.yml@v0.54.0
     # uses: issenn/flowzone/.github/workflows/flowzone.yml@v0.54.0
     # prevent duplicate workflows and only allow one `pull_request` or `pull_request_target` for
