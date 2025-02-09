@@ -1,10 +1,10 @@
-group "default" {
-  targets = [
-    "main",
-    # "other",
-    # "darwin",
-  ]
-}
+# group "default" {
+#   targets = [
+#     "main",
+#     # "other",
+#     # "darwin",
+#   ]
+# }
 
 target "default" {
   inherits = [
