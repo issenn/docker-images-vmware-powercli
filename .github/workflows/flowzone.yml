@@ -42,7 +42,5 @@ jobs:
       # Disable branch protection updates whilst testing flowzone, remove before merging
       # protect_branch: false
       disable_versioning: true
-      docker_images: |
-        ghcr.io/issenn/vmware-powercli,
-        docker.io/issenn/vmware-powercli
+      docker_images: ghcr.io/issenn/vmware-powercli,docker.io/issenn/vmware-powercli
       restrict_custom_actions: false

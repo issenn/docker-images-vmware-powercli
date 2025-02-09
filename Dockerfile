@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.7
+# hadolint ignore=DL3006
+FROM python
 
 ARG CACHEBUST
 
@@ -29,16 +30,19 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y --no-install-recommends powershell-lts \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && sync
 
 SHELL ["/usr/bin/pwsh", "-c"]
 
 RUN --mount=type=bind,target=/data \
-    && Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted \
-    && Install-Module -Name VMware.PowerCLI \
-    # && cd $(($env:PSModulePath -split [System.IO.Path]::PathSeparator)[0]) \
+    # Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted \
+    # && Install-Module -Name VMware.PowerCLI \
+    cd $(($env:PSModulePath -split [System.IO.Path]::PathSeparator)[0]) \
+    && Expand-Archive /data/Modules/VMware-PowerCLI-13.0.0-20829139.zip ./ \
     # && Expand-Archive /data/Modules/VMware-PowerCLI-13.3.0-24145081.zip ./ \
     # && Get-ChildItem * -Recurse | Unblock-File \
-    && Get-Module -Name VMware.PowerCLI -ListAvailable
+    && Get-Module -Name VMware.PowerCLI -ListAvailable \
+    && sync
 
 CMD [ "pwsh" ]
