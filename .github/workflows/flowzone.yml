@@ -73,7 +73,7 @@ jobs:
       DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     with:
-      # disable_versioning: true
+      disable_versioning: true
       docker_images: |
         ghcr.io/issenn/vmware-powercli,
         docker.io/issenn/vmware-powercli
