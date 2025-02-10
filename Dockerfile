@@ -36,11 +36,12 @@ RUN apt-get update \
 SHELL ["/usr/bin/pwsh", "-c"]
 
 RUN --mount=type=bind,target=/data \
-    # Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted \
-    # && Install-Module -Name VMware.PowerCLI \
-    cd $(($env:PSModulePath -split [System.IO.Path]::PathSeparator)[0]) \
-    && Expand-Archive /data/Modules/VMware-PowerCLI-13.0.0-20829139.zip ./ \
-    # && Expand-Archive /data/Modules/VMware-PowerCLI-13.3.0-24145081.zip ./ \
+    Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted \
+    && Install-Module -Name VMware.PowerCLI -RequiredVersion 13.0.0.20829139 \
+    # && Install-Module -Name VMware.PowerCLI -RequiredVersion 13.3.0.24145081 \
+    # cd $(($env:PSModulePath -split [System.IO.Path]::PathSeparator)[0]) \
+    # && Expand-Archive -Path /data/Modules/VMware-PowerCLI-13.0.0-20829139.zip -DestinationPath ./ \
+    # && Expand-Archive -Path /data/Modules/VMware-PowerCLI-13.3.0-24145081.zip -DestinationPath ./ \
     # && Get-ChildItem * -Recurse | Unblock-File \
     && Get-Module -Name VMware.PowerCLI -ListAvailable \
     && sync
