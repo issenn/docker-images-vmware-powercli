@@ -4,19 +4,43 @@ name: Flowzone
 
 on:
   pull_request:
-    types: [opened, synchronize, closed]
+    types:
+      - "opened"
+      - "synchronize"
+      - "closed"
     branches:
       - "main"
       - "master"
   # allow external contributions to use secrets within trusted code
   # pull_request_target:
-  #   types: [opened, synchronize, closed]
+  #   types:
+  #     - "opened"
+  #     - "synchronize"
+  #     - "closed"
   #   branches:
   #     - "main"
   #     - "master"
   push:
     tags:
       - v*.*.*
+
+permissions:
+  actions: none
+  attestations: none
+  checks: none
+  contents: read
+  deployments: none
+  discussions: none
+  id-token: none  # AWS GitHub OIDC provider
+  issues: none
+  # metadata: read
+  # packages: read
+  packages: write  # Allow Flowzone to publish to ghcr.io
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
 
 jobs:
   flowzone:
