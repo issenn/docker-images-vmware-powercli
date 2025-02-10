@@ -9,7 +9,7 @@ module.exports = {
   //     baseDir: '.',
   //     regexFlags: '',
   // },
-  // updateVersion: 'update-version-file',
+  updateVersion: 'update-version-file',
   // updateVersion: 'mixed',
 
   // defaultInitialVersion: '0.0.1',
@@ -41,6 +41,9 @@ module.exports = {
   //   v[2] = Number(v[2]) + 1;
   //   return v.join('.');
   // },
+  incrementVersion: (version, incrementLevel) => {
+    return '13.0.0';
+  },
 
   // Always add the entry to the top of the Changelog, below the header.
   // addEntryToChangelog: {
