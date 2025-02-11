@@ -12,7 +12,7 @@ SHELL ["/bin/bash", "-eufo", "pipefail", "-c"]
 
 # hadolint ignore=DL3013
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip --no-cache-dir install \
+    && pip install --no-cache-dir \
       "cryptography<44.0.0" \
       "six==1.17.0" \
       "lxml==5.3.0" \
@@ -48,5 +48,7 @@ RUN --mount=type=bind,target=/data \
     # && Get-ChildItem * -Recurse | Unblock-File \
     && Get-Module -Name "VMware.${PACKAGE_NAME}" -ListAvailable \
     && sync
+
+# ENTRYPOINT [ "pwsh" ]
 
 CMD [ "pwsh" ]

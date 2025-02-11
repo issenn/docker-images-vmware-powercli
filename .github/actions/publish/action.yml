@@ -1,6 +1,6 @@
 # https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
-name: "Clean custom"
-description: "Custom clean step to run after PR is closed"
+name: "Publish custom"
+description: "Custom publish step to run after all tests have passed"
 # this inputs are always provided by issenn, so they must always be defined on the composite action
 inputs:
   json:
@@ -15,7 +15,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: issenn/flowzone/.github/actions/clean@v19.9.19
+    - uses: issenn/flowzone/.github/actions/publish@v19.9.19
       with:
         json: ${{ inputs.json }}
         # json: ${{ toJSON(inputs.json) }}
