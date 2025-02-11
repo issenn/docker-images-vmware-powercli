@@ -18,10 +18,10 @@ module.exports = {
 
   // defaultInitialVersion: '0.0.1',
 
-  getChangelogDocumentedVersions: {
-    preset: 'changelog-headers',
-    clean: /^v/
-  },
+  // getChangelogDocumentedVersions: {
+  //   preset: 'changelog-headers',
+  //   clean: /^v/
+  // },
 
   getGitReferenceFromVersion: 'v-prefix',
 
@@ -78,17 +78,17 @@ module.exports = {
 
   // transformTemplateData: 'changelog-entry',
 
-  transformTemplateDataAsync: {
-    preset: 'nested-changelogs',
-    upstream: [
-      {{#upstream}}
-      {
-        pattern: '{{{pattern}}}',
-        repo: '{{repo}}',
-        owner: '{{owner}}',
-        ref: '{{ref}}'
-      },
-      {{/upstream}}
-    ]
-  },
+  // transformTemplateDataAsync: {
+  //   preset: 'nested-changelogs',
+  //   upstream: [
+  //     {{#upstream}}
+  //     {
+  //       pattern: '{{{pattern}}}',
+  //       repo: '{{repo}}',
+  //       owner: '{{owner}}',
+  //       ref: '{{ref}}'
+  //     },
+  //     {{/upstream}}
+  //   ]
+  // },
 };
