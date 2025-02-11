@@ -5,7 +5,7 @@ const path = require('path');
 const execSync = require('child_process').execSync;
 
 module.exports = {
-  // editVersion: false,
+  editVersion: true,
   // editChangelog: true,
 
   // updateVersion: {
@@ -18,17 +18,17 @@ module.exports = {
 
   // defaultInitialVersion: '0.0.1',
 
-  // getChangelogDocumentedVersions: {
-  //   preset: 'changelog-headers',
-  //   clean: /^v/
-  // },
+  getChangelogDocumentedVersions: {
+    preset: 'changelog-headers',
+    clean: /^v/
+  },
 
-  // getGitReferenceFromVersion: 'v-prefix',
+  getGitReferenceFromVersion: 'v-prefix',
 
-  // getCurrentBaseVersion: 'latest-documented',
+  getCurrentBaseVersion: 'latest-documented',
 
-  // parseFooterTags: true,
-  // lowerCaseFooterTags: true,
+  parseFooterTags: true,
+  lowerCaseFooterTags: true,
 
   // getIncrementLevelFromCommit: 'change-type-or-subject',
   // getIncrementLevelFromCommit: (commit) => {
@@ -70,25 +70,25 @@ module.exports = {
   //   fromLine: 2
   // },
 
-  // includeCommitWhen: 'has-changetype',
+  includeCommitWhen: 'has-changetype',
   // includeCommitWhen: 'has-changelog-entry',
 
   // template: 'oneline',
-  // template: 'default',
+  template: 'default',
 
   // transformTemplateData: 'changelog-entry',
 
-  // transformTemplateDataAsync: {
-  //   preset: 'nested-changelogs',
-  //   upstream: [
-  //     {{#upstream}}
-  //     {
-  //       pattern: '{{{pattern}}}',
-  //       repo: '{{repo}}',
-  //       owner: '{{owner}}',
-  //       ref: '{{ref}}'
-  //     },
-  //     {{/upstream}}
-  //   ]
-  // },
+  transformTemplateDataAsync: {
+    preset: 'nested-changelogs',
+    upstream: [
+      {{#upstream}}
+      {
+        pattern: '{{{pattern}}}',
+        repo: '{{repo}}',
+        owner: '{{owner}}',
+        ref: '{{ref}}'
+      },
+      {{/upstream}}
+    ]
+  },
 };
