@@ -1,5 +1,9 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+const execSync = require('child_process').execSync;
+
 module.exports = {
   editVersion: false,
   // editChangelog: true,
@@ -42,7 +46,22 @@ module.exports = {
   //   return v.join('.');
   // },
   incrementVersion: (version, incrementLevel) => {
-    return '13.0.0';
+    const WORKDIR = "."
+    const BAKE_TARGETS = "default"
+    const ALL_FILES = fs.readdirSync(WORKDIR)
+    const bakeTargets = BAKE_TARGETS.trim().replace(/[\s,]+/g,',').split(',');
+    const bakeFiles = ALL_FILES
+      .filter(f => f.match(/docker-bake(\.override)?\.(json|hcl)/))
+      .map(f => path.join(WORKDIR.trim(), f));
+    const fileArgs = bakeFiles.map(f => `-f ${f}`).join(' ');
+    const bakeCmd = `docker buildx bake --print ${bakeTargets.join(' ')} ${fileArgs}`;
+    const bakeOutput = execSync(bakeCmd).toString().trim();
+    const bakeJson = JSON.parse(bakeOutput);
+    const package_version = bakeJson.target?.default?.args?.PACKAGE_VERSION || version;
+    // const package_version_build_metadata = bakeJson.target?.default?.args?.PACKAGE_VERSION_BUILD_METADATA || '';
+    // version = !package_version_build_metadata ? package_version
+    //   : `${package_version}-${package_version_build_metadata}`;
+    return package_version;
   },
 
   // Always add the entry to the top of the Changelog, below the header.
