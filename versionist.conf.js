@@ -18,10 +18,10 @@ module.exports = {
 
   // defaultInitialVersion: '0.0.1',
 
-  // getChangelogDocumentedVersions: {
-  //   preset: 'changelog-headers',
-  //   clean: /^v/
-  // },
+  getChangelogDocumentedVersions: {
+    preset: 'changelog-headers',
+    clean: /^v/
+  },
 
   getGitReferenceFromVersion: 'v-prefix',
 
