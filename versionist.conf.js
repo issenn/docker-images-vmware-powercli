@@ -5,7 +5,7 @@ const path = require('path');
 const execSync = require('child_process').execSync;
 
 module.exports = {
-  editVersion: false,
+  // editVersion: false,
   // editChangelog: true,
 
   // updateVersion: {
