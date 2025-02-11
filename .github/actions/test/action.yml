@@ -15,7 +15,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: issenn/flowzone/.github/actions/test@v19.9.14
+    - uses: issenn/flowzone/.github/actions/test@v19.9.19
       with:
         json: ${{ inputs.json }}
         # json: ${{ toJSON(inputs.json) }}
