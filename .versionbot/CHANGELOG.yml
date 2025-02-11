@@ -1,0 +1,94 @@
+- commits:
+    - subject: "feat: Add finalize custom action"
+      hash: ac6907961ab1b3d5abe5139fafce5873a4d957c6
+      body: |
+        add finalize custom action
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: Add custom clean action"
+      hash: 5afb765b5934722eced22f2242af68a39f556aaa
+      body: |
+        add custom clean action
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: Add versionist"
+      hash: 94619b8caac222f8a3091d877813fe27a0d2b138
+      body: |
+        add versionist
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: Remove versionist.conf.js"
+      hash: 9aaa37a6768b9a73a2abe4a2c13a3c5f552a3f7f
+      body: |
+        remove versionist.conf.js
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: fix versionist.conf.js"
+      hash: ac46027e9d67f7dfcdfcf9a9037725eb8e3f6ccd
+      body: |
+        fix versionist.conf.js
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: add versionist"
+      hash: 631995df62d4f71409a1c8ee7b251513944c91ef
+      body: |
+        Add versionist.conf.sj
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: title"
+      hash: c887fb5b7ab524ef39fb5396a4cbdac9d1158295
+      body: |
+        body
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: title"
+      hash: 7260334fb486c96e7eb8cf5f13aa449678504419
+      body: |
+        body
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: tile"
+      hash: e54d95d1ac77e381549301b1036696c6304a923f
+      body: |
+        body
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+    - subject: "feat: title"
+      hash: ea1be6ac4d4fdec44222a96bc02d3fa14620ed20
+      body: |
+        body
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: issenn
+      nested: []
+  version: 13.3.0
+  title: ""
+  date: 2025-02-11T12:59:48.907Z
