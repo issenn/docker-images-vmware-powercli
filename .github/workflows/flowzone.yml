@@ -1,0 +1,80 @@
+---
+
+name: Flowzone
+
+on:
+  pull_request:
+    types:
+      - "opened"
+      - "synchronize"
+      - "closed"
+    branches:
+      - "main"
+      - "master"
+  # allow external contributions to use secrets within trusted code
+  # pull_request_target:
+  #   types:
+  #     - "opened"
+  #     - "synchronize"
+  #     - "closed"
+  #   branches:
+  #     - "main"
+  #     - "master"
+  # push:
+  #   tags:
+  #     - v*.*.*
+
+permissions:
+  actions: none
+  attestations: none
+  checks: none
+  contents: read
+  deployments: none
+  discussions: none
+  id-token: none  # AWS GitHub OIDC provider
+  issues: none
+  # metadata: read
+  # packages: read
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+  # Additional permissions needed by this repo, such as:
+  packages: write  # Allow Flowzone to publish to ghcr.io
+
+jobs:
+  flowzone:
+    name: Flowzone
+    # uses: product-os/flowzone/.github/workflows/flowzone.yml@v0.54.0
+    # uses: product-os/flowzone/.github/workflows/flowzone.yml@v19.9.14
+    # uses: issenn/flowzone/.github/workflows/flowzone.yml@v0.54.0
+    # uses: issenn/flowzone/.github/workflows/flowzone.yml@v19.9.19
+    uses: issenn/flowzone/.github/workflows/flowzone.yml@feat-issenn
+    # prevent duplicate workflows and only allow one `pull_request` or `pull_request_target` for
+    # internal or external contributions respectively
+    if: |
+      (
+        github.event.pull_request.head.repo.full_name == github.repository &&
+        github.event_name == 'pull_request'
+      ) || (
+        github.event.pull_request.head.repo.full_name != github.repository &&
+        github.event_name == 'pull_request_target'
+      ) || (
+        github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+      )
+
+    # Workflows in the same org or enterprise can use the inherit keyword to implicitly pass secrets
+    secrets: inherit
+    # Otherwise you must manually specify which secrets to pass
+    # secrets:
+    #   FLOWZONE_TOKEN: ${{ secrets.FLOWZONE_TOKEN }}
+    #   DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+    #   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    with:
+      # disable_versioning: true
+      docker_images: |
+        ghcr.io/issenn/vmware-powercli,
+        docker.io/issenn/vmware-powercli
+      # restrict_custom_actions: false
