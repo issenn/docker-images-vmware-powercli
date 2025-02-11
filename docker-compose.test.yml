@@ -1,0 +1,13 @@
+---
+
+services:
+  sut:
+    # image: localhost:5000/sut
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # entrypoint: ""
+    command: >-
+      pwsh -c '
+      Get-Module -Name "VMware.PowerCLI" -ListAvailable
+      '
