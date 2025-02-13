@@ -11,8 +11,7 @@ const getPackageVersion = (options) => {
     baseDir: '.',
     regex: 'docker-bake(\.override)?\.(json|hcl)',
     bake_targets: 'default',
-    // version: '0.0.1',
-    version: '13.3.0',
+    version: '0.0.1',
   });
   // const WORKDIR = "."
   // const BAKE_TARGETS = "default"
@@ -78,7 +77,8 @@ module.exports = {
   //   return v.join('.');
   // },
   incrementVersion: (version, incrementLevel) => {
-    return getPackageVersion({version: version});
+    // return getPackageVersion({version: version});
+    return getPackageVersion({version: '15.0.0'});
     // return getPackageVersion(version);
     // return '1.0.0';
   },
