@@ -29,12 +29,13 @@ const getPackageVersion = (options) => {
   // version = !package_version_build_metadata ? package_version
   //   : `${package_version}-${package_version_build_metadata}`;
   // return package_version;
-  return options.version;
+  // return options.version;
+  return '2.0.0';
 };
 
 module.exports = {
   editVersion: true,
-  editChangelog: false,
+  // editChangelog: false,
 
   // updateVersion: {
   //     preset: 'quoted',
