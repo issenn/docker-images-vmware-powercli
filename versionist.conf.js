@@ -79,7 +79,8 @@ module.exports = {
   // },
   incrementVersion: (version, incrementLevel) => {
     // return getPackageVersion({version: version});
-    return getPackageVersion({version: '15.0.0'});
+    // return getPackageVersion({version: '15.0.0'});
+    return getPackageVersion();
     // return getPackageVersion(version);
     // return '1.0.0';
   },
