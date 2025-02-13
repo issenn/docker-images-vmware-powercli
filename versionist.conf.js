@@ -11,7 +11,7 @@ const getPackageVersion = (options) => {
     baseDir: '.',
     regex: 'docker-bake(\.override)?\.(json|hcl)',
     bake_targets: 'default',
-    version: '0.0.1',
+    version: '0.0.2',
   });
   // const WORKDIR = "."
   // const BAKE_TARGETS = "default"
