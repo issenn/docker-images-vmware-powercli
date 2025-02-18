@@ -1,0 +1,25 @@
+# https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+name: "Finalize custom"
+description: "Custom finalize step to run after a merge or tag"
+# this inputs are always provided by issenn, so they must always be defined on the composite action
+inputs:
+  json:
+    description: "JSON stringified object containing all the inputs from the calling workflow"
+    required: true
+  secrets:
+    description: "JSON stringified object containing all the secrets from the calling workflow"
+    required: true
+  variables:
+    description: "JSON stringified object containing all the variables from the calling workflow"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - uses: issenn/flowzone/.github/actions/finalize@v19.9.19
+      with:
+        json: ${{ inputs.json }}
+        # json: ${{ toJSON(inputs.json) }}
+        secrets: ${{ inputs.secrets }}
+        # secrets: ${{ toJSON(inputs.secrets) }}
+        variables: ${{ inputs.variables }}
+        # variables: ${{ toJSON(inputs.variables) }}
