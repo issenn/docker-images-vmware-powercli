@@ -1,4 +1,16 @@
 - commits:
+    - subject: "feat: Update vmware PowerCLI to v13.3.0"
+      hash: dafc24788959d98d3e6c4311cacb53eef6be9579
+      body: |
+        13.3.0
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: issenn
+  version: 13.3.0
+  title: ""
+  date: 2025-02-19T16:25:51.053Z
+- commits:
     - subject: "feat: Add Docker, versionist, flowzone"
       hash: d3c5642f270460665b364733685b81735009061c
       body: >
