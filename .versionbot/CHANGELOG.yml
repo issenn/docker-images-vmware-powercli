@@ -1,0 +1,13 @@
+- commits:
+    - subject: "feat: Add Docker, versionist, flowzone"
+      hash: d3c5642f270460665b364733685b81735009061c
+      body: >
+        Add Dockerfile, docker-compose.test.yml, docker-bake.hcl,
+        versionist.conf.js, flowzone workflow for vmware-powercli
+      footer:
+        Change-type: major
+        change-type: major
+      author: issenn
+  version: 13.0.0
+  title: ""
+  date: 2025-02-19T14:56:22.465Z
