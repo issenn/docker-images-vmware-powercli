@@ -27,7 +27,7 @@ target "main" {
   # ]
   # context = "."
   contexts = {
-    python = "docker-image://python:3.7.17-bullseye"
+    python = "docker-image://python:3.7.17-bookworm"
   }
   args = {
     CACHEBUST = "https://api.github.com/repos/issenn/docker-images-vmware-powercli/git/refs/heads/master"
